@@ -28,14 +28,14 @@ export default {
   },
   directives: {
     outSide: {
-      bind(el, bindings, vnode) {
+      bind(el, bindings, vnode, oldVnode) {
         el.handler = e => {
           if (el.contains(e.target)) return;
           vnode.context[bindings.expression]();
         };
         document.addEventListener("click", el.handler);
       },
-      unbind(el) {
+      unbind(el, bindings, vnode, oldVnode) {
         document.removeEventListener("click", el.handler);
       }
     }
