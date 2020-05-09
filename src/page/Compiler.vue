@@ -26,6 +26,9 @@ export default {
       code: ""
     };
   },
+  created(){
+    console.log('this_compiler',this)
+  },
   methods: {
     handleEdit(code) {
       this.code = code;

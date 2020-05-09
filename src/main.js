@@ -32,8 +32,15 @@ Vue.prototype.$dispatch = function (parentName, fnName) {
     return parent
   }
 }
-
-new Vue({
+const vm = new Vue({
   render: h => h(App),
-  router
+  // template:`<div>aaa  </div>`,
+  router,
+  created(){
+    console.log('this_Vue',this)
+  },
 }).$mount('#app')
+
+console.log('Vue.options', Vue.options)
+console.log('Vue.mixin', Vue.mixin)
+console.log('vm', vm)
